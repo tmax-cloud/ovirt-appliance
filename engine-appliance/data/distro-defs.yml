@@ -1,17 +1,7 @@
 ---
 centos:
-  url: --mirrorlist=http://mirrorlist.centos.org/?repo=baseos&release=$releasever&arch=$basearch
+  url: --url=http://prolinux-repo.tmaxos.com/prolinux/8.2/os/x86_64/BaseOS
   repos:
-    extra: --mirrorlist=http://mirrorlist.centos.org/?repo=extras&release=$releasever&arch=$basearch
-    appstream: --mirrorlist=http://mirrorlist.centos.org/?repo=appstream&release=$releasever&arch=$basearch
-    powertools: --mirrorlist=http://mirrorlist.centos.org/?repo=powertools&release=$releasever&arch=$basearch
+    appstream: --baseurl=http://prolinux-repo.tmaxos.com/prolinux/8.2/os/x86_64/AppStream
   services: sshd
   firewall: cockpit
-
-fedora:
-  url: --mirrorlist=https://mirrors.fedoraproject.org/mirrorlist?repo=fedora-$releasever&arch=$arch
-  repos:
-    updates: --mirrorlist=https://mirrors.fedoraproject.org/mirrorlist?repo=updates-released-f$releasever&arch=$arch
-  services: sshd
-  firewall: cockpit
-  updates: https://bugzilla.redhat.com/attachment.cgi?id=1454675

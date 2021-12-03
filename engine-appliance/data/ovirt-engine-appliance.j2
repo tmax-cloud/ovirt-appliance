@@ -148,13 +148,15 @@ mod_session
 #
 %post --erroronfail
 set -x
-dnf install -y {{ releaserpm }}
-dnf -y update
 
-# Use baseurl instead of repo to ensure we use the latest rpms
-sed -i "s/^mirrorlist/#mirrorlist/ ; s/^#baseurl/baseurl/" $(find /etc/yum.repos.d/ovirt*.repo -type f ! -name "*dep*")
+cat <<EOF > /etc/yum.repos.d/ovirt.repo
+[ovirt]
+name=oVirt-4.4.3 for ProLinux
+baseurl=http://http://172.21.7.2/supervm/21.0.1-rc/prolinux/8/arch/x86_64/
+gpgcheck=0
+EOF
 
-dnf module enable -y javapackages-tools pki-deps 389-ds postgresql:12 mod_auth_openidc
+dnf module enable -y pki-deps 389-ds postgresql:12 mod_auth_openidc parfait
 
 dnf install -y \
 	ovirt-engine \
@@ -204,5 +206,12 @@ dnf install -y qemu-guest-agent
 systemctl enable qemu-guest-agent
 
 rm -vf /etc/sysconfig/network-scripts/ifcfg-e*
+rm -f /etc/yum.repos.d/ovirt.repo
+cat <<EOF > /etc/yum.repos.d/ovirt.repo
+[ovirt]
+name=oVirt-4.4.3 for ProLinux
+baseurl=http://prolinux-repo.tmaxos.com/ovirt/4.4/el8/x86_64/
+gpgcheck=0
+EOF
 
 %end

@@ -4,11 +4,13 @@
 
 Name:       ovirt-engine-appliance
 Version:    @VERSION@
-Release:    @RELEASE@%{?dist}%{?extra_release}
+Release:    @RELEASE@.prolinux8
 License:    GPLv2
 Summary:    The oVirt Engine Appliance image (OVA)
-Group:      Applications/System
-URL:        http://www.ovirt.org/
+Packager:   Tmax A&C Co., Ltd. <https://technet.tmaxsoft.com/>
+Vendor:     Tmax A&C Co., Ltd.
+Group:      Tmax A&C Co., Ltd.
+URL:        https://github.com/tmax-cloud/ovirt-appliance
 Source0:    @OVAFILENAME@
 BuildArch:  x86_64
 

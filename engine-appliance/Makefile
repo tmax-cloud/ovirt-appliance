@@ -37,10 +37,10 @@ LMC_CPUS ?= 4
 OVIRTRELEASERPM=http://resources.ovirt.org/pub/yum-repo/ovirt-release44.rpm
 ovirt-engine-appliance.spec: VERSION=4.4
 ovirt-engine-appliance.spec: VERSION_EXTRA=
-ovirt-engine-appliance.spec: RELEASE=$(shell date +%Y%m%d%H%M%S).1
+ovirt-engine-appliance.spec: RELEASE=supervm.21.0.0
 ovirt-engine-appliance.spec: OVAFILENAME=ovirt-engine-appliance.ova
 
-PYTHON ?= PYTHONPATH="$(PWD)/imagefactory/" python
+PYTHON ?= PYTHONPATH="$(PWD)/imagefactory/" python3
 
 # Direct for virt-sparsify: http://libguestfs.org/guestfs.3.html#backend
 export LIBGUESTFS_BACKEND=direct
