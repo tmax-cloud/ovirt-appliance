@@ -149,10 +149,10 @@ mod_session
 %post --erroronfail
 set -x
 
-cat <<EOF > /etc/yum.repos.d/ovirt.repo
-[ovirt]
-name=oVirt-4.4.3 for ProLinux
-baseurl=http://http://172.21.7.2/supervm/21.0.1-rc/prolinux/8/arch/x86_64/
+cat <<EOF > /etc/yum.repos.d/hypervm.repo
+[HyperVM]
+name=hypervm-4.4.9 for ProLinux
+baseurl=http://172.21.7.2/supervm/22.0.0-rc0/prolinux/8/arch/x86_64/
 gpgcheck=0
 EOF
 
@@ -207,10 +207,10 @@ systemctl enable qemu-guest-agent
 
 rm -vf /etc/sysconfig/network-scripts/ifcfg-e*
 rm -f /etc/yum.repos.d/ovirt.repo
-cat <<EOF > /etc/yum.repos.d/ovirt.repo
-[ovirt]
-name=oVirt-4.4.3 for ProLinux
-baseurl=http://prolinux-repo.tmaxos.com/ovirt/4.4/el8/x86_64/
+cat <<EOF > /etc/yum.repos.d/hypervm.repo
+[HyperVM]
+name=hypervm-4.4.9 for ProLinux
+baseurl=http://172.21.7.2/supervm/22.0.0-rc0/prolinux/8/arch/x86_64/
 gpgcheck=0
 EOF
 
